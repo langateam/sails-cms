@@ -1,14 +1,30 @@
 /**
 * FileDescriptor.js
-*
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
 */
-
 module.exports = {
+  autoPK: false,
 
   attributes: {
+    id: {
+      type: 'string',
+      primaryKey: true
+    },
+    name: {
+      type: 'string'
+    },
+    filename: {
+      type: 'string'
+    },
+    type: {
+      type: 'string'
+    },
+    size: {
+      type: 'integer'
+    }
+  },
 
-  }
+  beforeValidate: function (descriptor, next) {
+    descriptor.id = descriptor.fd;
+    next();
+  } 
 };
-
