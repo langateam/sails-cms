@@ -9,15 +9,19 @@ module.exports = {
     document: {
       type: 'integer'
     },
+    /*
     documentType: {
       model: 'Model'
     },
+    */
     recipient: {
       type: 'integer'
     },
+      /*
     recipientType: {
       model: 'Model'
     }
+    */
   }
 };
 

@@ -9,6 +9,9 @@ module.exports = {
     },
     data: {
       type: 'bytea'
+    },
+    dirname: {
+      type: 'string'
     }
   }
 };

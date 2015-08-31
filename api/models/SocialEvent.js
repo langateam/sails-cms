@@ -8,9 +8,11 @@ module.exports = {
     type: {
       model: 'Label'
     },
+    /*
     targetModel: {
       model: 'Model'
     },
+    */
     target: {
       type: 'integer'
     }

@@ -13,6 +13,7 @@ describe('FileController', function () {
         .expect(200)
         .end(function (err, res) {
           assert(res.body);
+          console.log(res.body)
           assert.equal(res.body.length, 1);
           assert.equal(res.body[0].filename, 'testfile.txt');
           fd = res.body[0].fd;

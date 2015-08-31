@@ -5,7 +5,16 @@ var Sails = require('sails');
 var config = {
   log: { level: 'error' },
   models: { migrate: 'alter' },
-  hooks: { grunt: false }
+  hooks: { grunt: false },
+  skipper: {
+    connection: {
+      adapter: 'skipper-postgresql'
+    }
+  },
+  blueprints: {
+    rest: true,
+    actions: true
+  }
 };
 
 before(function(done) {

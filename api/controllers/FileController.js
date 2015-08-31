@@ -6,7 +6,7 @@
 module.exports = {
 
   upload: function (req, res) {
-    var config = FileService.hydrateFilemanagerConfig();
+    var config = FileService.hydrateSkipperConfig();
 
     req.file(req.query.fieldName || 'upload').upload(config, function afterFileUpload (err, files) {
       if (err) return res.negotiate(err);
@@ -18,7 +18,7 @@ module.exports = {
   },
 
   download: function (req, res) {
-    var config = sails.config.filemanager.skipper.connection;
+    var config = sails.config.skipper.connection;
     var SkipperAdapter = require(config.adapter);
     var id = req.param('id');
 
@@ -28,8 +28,8 @@ module.exports = {
           if (err) return res.negotiate(err);
 
           res.contentType(fileDescriptor.type);
-          res.setHeader('Content-disposition', 'attachment; filename=' + fileDescriptor.filename); 
-          res.send(new Buffer(file));
+          //res.setHeader('Content-disposition', 'attachment; filename=' + fileDescriptor.filename); 
+          res.send(file)
         });
       })
       .catch(res.negotiate);
