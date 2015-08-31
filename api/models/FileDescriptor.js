@@ -15,6 +15,10 @@ module.exports = {
     filename: {
       type: 'string'
     },
+    dirname: {
+      type: 'string',
+      defaultsTo: '/'
+    },
     type: {
       type: 'string'
     },
