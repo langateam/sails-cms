@@ -2,6 +2,8 @@
 * File.js
 */
 module.exports = {
+  
+  globalId: 'FileEntity',
 
   attributes: {
     fd: {
