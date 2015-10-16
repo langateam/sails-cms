@@ -7,10 +7,11 @@ module.exports = {
 
   attributes: {
     fd: {
-      model: 'FileDescriptor'
+      model: 'FileDescriptor',
+      primaryKey: true
     },
     data: {
-      type: 'bytea'
+      type: 'binary'
     },
     dirname: {
       type: 'string'

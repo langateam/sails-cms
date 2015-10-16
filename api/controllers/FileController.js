@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 /**
  * FileController
  *
@@ -11,7 +13,7 @@ module.exports = {
     req.file(req.query.fieldName || 'upload').upload(config, function afterFileUpload (err, files) {
       if (err) return res.negotiate(err);
 
-      sails.models.filedescriptor.create(files)
+      sails.models.filedescriptor.create(_.defaults({ }, files[0], req.body))
         .then(res.ok)
         .catch(res.negotiate);
     });
@@ -24,7 +26,7 @@ module.exports = {
 
     sails.models.filedescriptor.findOne(id)
       .then(function (fileDescriptor) {
-        SkipperAdapter(_.clone(config)).read(id, function (err, file) {
+        SkipperAdapter(_.clone(config)).read({ fd: id }, function (err, file) {
           if (err) return res.negotiate(err);
 
           res.contentType(fileDescriptor.type);
